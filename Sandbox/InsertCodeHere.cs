@@ -32,10 +32,19 @@ namespace Sandbox
             
             //Gennemløb talarray og udskriv indholdet
             Console.WriteLine("Udskrivning af TalArray");
-            int index = 0; 
-            foreach (int tal in talArray)
+            //int index = 0; 
+            //foreach (int tal in talArray)
+            //{
+            //    Console.WriteLine($"Indhold er {tal} på plads {index }");
+            //    index++;
+            //}
+
+            //Gennemløb talarray og udskriv indholdet vha WHILE
+            Console.WriteLine("Udskrivning ved While");
+            int index = 0;
+            while (index < 10)
             {
-                Console.WriteLine($"Indhold er {tal} på plads {index }");
+                Console.WriteLine($"Indhold er {talArray[ index]} på plads {index }");
                 index++;
             }
 
@@ -66,9 +75,15 @@ namespace Sandbox
                 Console.WriteLine(book.ToString());
             }
 
-            //Hvordan fjernes et objekt fra listen?
-            //Hvordan checkes om der er en bestemt book i listen?
 
+            //Hvordan fjernes et objekt fra listen?
+
+            //bookList.Remove(b1);
+            //bookList.RemoveAt(1);
+            
+            //Hvordan checkes om der er en bestemt book i listen?
+            bool findes= bookList.Contains(b2);
+            Console.WriteLine($"Findes {b2.Titel} i booklist {findes}");
 
             //Dictioanry
 
@@ -78,11 +93,33 @@ namespace Sandbox
             bookDictionary.Add(b2.Isbn, b2);
 
             //Udskrive
+            Console.WriteLine("Udskrivning af Bookdictionary keyvalue pair");
+            foreach (var keyValue in bookDictionary)
+            {
+                Console.WriteLine($"Key :{keyValue.Key}  \tValue: {keyValue.Value}");
+            }
+
 
             //Fjerne  elementer
+            //bookDictionary.Remove("1234");
+            //bookDictionary.Remove(b1.Isbn);
 
-            //Checke om objekt forekommer i dictionary
+            //Udskriv values
+            Console.WriteLine("Udskrivning af values i bookdictionary");
+            foreach (Book aBook in bookDictionary.Values)
+            {
+                Console.WriteLine($"{aBook}");
+            }
 
+            //Checke om objekt eksisterer i dictionary
+
+            bool findes5656= bookDictionary.ContainsKey("5656");
+            if (findes5656)
+                Console.WriteLine($"Bogen findes : {bookDictionary["5656"]}");
+            else
+            {
+                Console.WriteLine($"Bogen findes ikke");
+            }
             //Console.WriteLine("Hello world!");
 
             // The LAST line of code should be ABOVE this line
